@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student form </title>
+    <style>
+        .errors{
+            color: olivedrab;
+        }
+    </style>
+</head>
+<body>
+<h1> Add new  Student </h1>
+<form method="post" th:action="@{/addStudents}" th:object="${newStudent}">
+    <p>First Name: <input th:field="*{firstName}" placeholder="Dawit">
+        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="errors"></span></p>
+    <p>Last Name: <input th:field="*{lastName}" placeholder="Hailu">
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:errorclass="errors"></span></p>
+
+    <p>Date Of gratuation : <input th:field="*{dateOfEmp}" placeholder="2011-07-24">
+        <span th:if="${#fields.hasErrors('dateOfEmp')}" th:errors="*{dateOfEmp}" th:errorclass="errors"></span></p>
+
+    <p>Descripion : <input th:field="*{descripion}" placeholder="Good">
+        <span th:if="${#fields.hasErrors('descripion')}" th:errors="*{descripion}" th:errorclass="errors"></span></p>
+
+    <p>Address: </p>
+<!--    <p>Street: <input th:field="*{address.street}" placeholder="9030 MarkVille">-->
+<!--        <span th:if="${#fields.hasErrors('address.street')}" th:errors="*{address.street}" th:errorclass="errors"></span></p>-->
+<!--    </p>-->
+<!--    <p>City: <input th:field="*{address.city}" placeholder="Dallas">-->
+<!--        <span th:if="${#fields.hasErrors('address.street')}" th:errors="*{address.street}" th:errorclass="errors"></span></p>-->
+<!--    </p>-->
+<!--    <p>State: <input th:field="*{address.state}" placeholder="Texas">-->
+<!--        <span th:if="${#fields.hasErrors('address.state')}" th:errors="*{address.state}" th:errorclass="errors"></span></p>-->
+<!--    </p>-->
+<!--    <p>Zip Code: <input th:field="*{address.zipCode}" placeholder="75243">-->
+<!--        <span th:if="${#fields.hasErrors('address.zipCode')} " th:errors="*{address.zipCode}" th:errorclass="errors"></span>-->
+<!--    </p>-->
+    <p>Phone Number: <input th:field="*{phone}" placeholder="1234-567-890">
+        <span th:if="${#fields.hasErrors('phone')} " th:errors="*{phone}" th:errorclass="errors"></span>
+    </p>
+
+    <p> Address
+    <select  th:field="*{address}" >
+        <option value="">Select one</option>
+        <option th:each="address: ${listaddress}" th:value="${{address}}" th:text="${address.city}">
+        </option>
+    </select>
+    </p>
+
+<!--    </p>Address-->
+<!--    <select th:field="*{address}" multiple="multiple" size="3">-->
+<!--        <option th:each="address: ${listaddress}" th:value="${{address}}" th:text="${address.street}">-->
+<!--        </option>-->
+<!--    </select>-->
+
+<!--    </p>-->
+
+
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> Student List</title>
+</head>
+<body>
+
+<div id="container">
+    <div>
+        <span >List of Student </span>
+    </div>
+
+    <div style="font-size: 1em">
+        <table >
+            <thead>
+            <tr>
+                <th >#</th>
+                <th >First Name</th>
+                <th >Last name</th>
+                <th >Date of Gratuation</th>
+                <th >Description</th>
+                <th >Address Street </th>
+                <th >Address City </th>
+                <th >Address State</th>
+                <th >Address ZipCode</th>
+                <th >Phone Number</th>
+            </tr>
+                 </thead>
+
+            <tbody>
+                    <tr th:each="stu,iterStat : ${student}">
+                <th scope="row" th:text="${iterStat.count}+${'.'}">1</th>
+
+                <td th:text="${stu.firstName}"></td>
+                <td th:text="${stu.lastName}"></td>
+                <td th:text="${stu.dateOfEmp}"></td>
+                <td th:text="${stu.descripion}"></td>
+                <td th:text="${stu.address.street}"></td>
+                <td th:text="${stu.address.city}"></td>
+                <td th:text="${stu.address.state}"></td>
+                <td th:text="${stu.address.zipCode}"></td>
+                        <td th:text="${stu.phone}"></td>
+
+                <td><a th:href="@{'/edit/' +  ${stu.id}}">edit</a></td>
+                <td>
+                    <a th:href="@{'/delete/' + ${stu.id}}">Delete</a>
+                </td>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

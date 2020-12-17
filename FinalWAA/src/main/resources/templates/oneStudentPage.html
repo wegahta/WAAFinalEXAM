@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Successfile page</title>
+    <style>
+        .container{
+            margin-left: 50px;
+            color: cornflowerblue;
+
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+<p> firstName :<span th:text="${onestudents.firstName}"></span> </p>
+<p> firstName :<span th:text="${onestudents.lastName}"></span> </p>
+<p> firstName :<span th:text="${onestudents.dateOfEmp}"></span> </p>
+<p> firstName :<span th:text="${onestudents.descripion}"></span> </p>
+<p> firstName :<span th:text="${onestudents.address.street}"></span> </p>
+<p> firstName :<span th:text="${onestudents.address.city}"></span> </p>
+<p> firstName :<span th:text="${onestudents.address.state}"></span> </p>
+<p> firstName :<span th:text="${onestudents.address.zipCode}"></span> </p>
+
+</div>
+</body>
+</html>
